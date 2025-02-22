@@ -6,6 +6,27 @@ Overview
 
 This project sets up a real-time streaming data pipeline for processing Amazon product review data. It consists of a Producer that generates and writes transactions to a JSON file and a Consumer that reads the transactions, stores them in an SQLite database, and visualizes insights dynamically using Matplotlib.
 
+## To start 
+1️. Create and Activate Virtual Environment
+Before running the scripts, set up a virtual environment:
+
+### Create virtual environment
+```python3 -m venv .venv```
+
+### Activate virtual environment (Mac/Linux)
+ ```source .venv/bin/activate```
+
+### Start kafka and zookeeper
+```cd ~/kafka```
+```chmod +x bin/zookeeper-server-start.sh```
+```bin/zookeeper-server-start.sh config/zookeeper.properties```
+
+```cd ~/kafka```
+```chmod +x binkafka-server-start.sh```
+```bin/kafka-server-start.sh config/server.properties```
+
+
+
 ## Project Components
 
 1. Producer
@@ -46,13 +67,13 @@ Technologies Used: Python, SQLite, Pandas, Matplotlib, Seaborn
 
 Ensure you have Python installed along with the required dependencies:
 
-pip install pandas numpy matplotlib seaborn sqlite3
+pip install pandas numpy matplotlib seaborn sqlite3 kafka zookeeper
 
 ## Running the Producer
 
 To start generating transactions, run:
 
-python producer.py
+```python3 -m producers.producer_jaya```
 
 This will continuously generate and write new transactions to transactions.json every 3 seconds.
 
@@ -60,7 +81,7 @@ Running the Consumer
 
 To process transactions and visualize the data, run:
 
-python consumer.py
+```python3 -m consumers.project_consumer_jaya.py```
 
 This will read the transactions, update the SQLite database, and dynamically refresh the visualizations.
 
