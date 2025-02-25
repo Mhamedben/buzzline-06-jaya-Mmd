@@ -12,7 +12,7 @@ from datetime import datetime
 from utils.utils_logger import logger
 
 # Load data
-DATA_FILE = '/Users/jaya/Documents/MS_Analytics/StreamingData/buzzline-06-jaya/data/amazon_clean.csv'
+DATA_FILE =  r'\Users\khalo\DSMM\buzzline-06-jaya-Mmd\data\amazon_clean.csv'
 try:
     data = pd.read_csv(DATA_FILE)
     logger.info(f"Successfully loaded data from {DATA_FILE}")
